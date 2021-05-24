@@ -1,12 +1,12 @@
-## Repository: 
+## Repository:
 
 ```
-PLACE_REPO_LINK_HERE
+https://github.com/ccard038/Fall-2021-Interview/tree/Dev/BACKEND
 ```
 
 ## Run Instructions
 
-ADD_INSTRUCTIONS_ON_HOW_TO_RUN_YOUR_APP
+To run the app change directory to backend and run app.js (node app.js)
 
 ## Additional Information
 

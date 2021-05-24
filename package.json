@@ -4,7 +4,7 @@
   "description": "<!-- PROJECT LOGO -->\r <br />\r <p align=\"center\">\r   <a href=\"https://github.com/aes-outreach/summer-2021-interview\">\r     <img src=\"outstem_logo_icon.svg\" alt=\"Logo\" width=\"80\" height=\"80\">\r   </a>",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -17,9 +17,17 @@
   },
   "homepage": "https://github.com/ccard038/Fall-2021-Interview#readme",
   "dependencies": {
+    "@types/chai": "^4.2.18",
     "base62": "^2.0.1",
+    "chai-http": "^4.3.0",
     "crypto-js": "^4.0.0",
     "express": "^4.17.1",
+    "mongoose": "^5.12.11",
     "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^8.4.0",
+    "request": "^2.88.2"
   }
 }
