@@ -1,10 +1,12 @@
+const crypto = require("crypto-js");
+const express = require("express");
 function encodeController(ShortLinks) {
   function post(req, res) {
     try {
       new URL(req.body.url);
     } catch (_) {
-      res.sendStatus(404).end();
-      return;
+      //return res.status(404);
+      return res.status(404).end();
     }
 
     let shaurl = crypto.SHA1(req.body.url);
@@ -19,15 +21,9 @@ function encodeController(ShortLinks) {
 
       return res.json(link);
     });
-    /*
-  if (!savedLinks.has(encoded)) {
-    savedLinks.set(encoded, req.body.url);
-  }
-  */
-
     return res.json(encoded);
-    //res.status(200).send(encoded).end();
   }
+  return { post };
 }
 
 module.exports = encodeController;
