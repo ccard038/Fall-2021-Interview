@@ -2,17 +2,17 @@ const express = require("express");
 const encodeController = require("../controllers/encodeController");
 const decodeController = require("../controllers/decodeController");
 
-function routes(ShortLinks) {
+function routes(ShortLinks, savedLinks) {
   const encodeRouter = express.Router();
 
-  const controller = encodeController(ShortLinks);
-  const controllerDecode = decodeController(ShortLinks);
+  const controller = encodeController(ShortLinks, savedLinks);
+  const controllerDecode = decodeController(ShortLinks, savedLinks);
 
   encodeRouter.route("/encode").post(controller.post);
 
   encodeRouter.route("/decode").post(controllerDecode.post);
 
-  encodeRouter.route("/*").post(controllerDecode.get);
+  //encodeRouter.route("/*").post(controllerDecode.get);
 
   return encodeRouter;
 }

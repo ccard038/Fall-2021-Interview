@@ -3,22 +3,25 @@ const bodyParser = require("body-parser");
 const crypto = require("crypto-js");
 const mongoose = require("mongoose");
 
-//var mongodb = mongoose.connect("mongodb://127.0.0.1/shortendlinks");
-
-mongoose.connect("mongodb://127.0.0.1/shortendlinks", {
+mongoose.connect("mongodb://127.0.0.1:27017/shortendlinks", {
   useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
-//const db = mongoose.connection;
-//db.on("error", console.error.bind(console, "MongoDB connection error:"));
+var db = mongoose.connection;
+
+db.on("error", console.error.bind(console, "connection error:"));
+
+db.once("open", function () {
+  console.log("Connection Successful!");
+});
 
 const app = express();
 const port = 8081;
 
+var savedLinks = new Map();
 const ShortLinks = require("./models/ShortLinks");
-const encodeRouter = require("./routes/encodeRouter")(ShortLinks);
-
-let savedLinks = new Map();
+const encodeRouter = require("./routes/encodeRouter")(ShortLinks, savedLinks);
 
 app.use(bodyParser.json());
 
