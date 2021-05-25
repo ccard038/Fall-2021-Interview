@@ -5,7 +5,8 @@ function encodeController(ShortLinks, savedLinks) {
     try {
       new URL(req.body.url);
     } catch (_) {
-      return res.status(404).end();
+      res.status(404);
+      return res.send();
     }
     let url = req.body.url;
     let shaurl = crypto.SHA1(req.body.url);
@@ -13,6 +14,7 @@ function encodeController(ShortLinks, savedLinks) {
     let encoded = buffer.toString("base64").substring(0, 7);
 
     //query not working
+    /*
     let query = ShortLinks.findOne({ url: url });
     query
       .exec()
@@ -31,12 +33,13 @@ function encodeController(ShortLinks, savedLinks) {
       .catch(function (err) {
         return;
       });
+      */
 
     //using map instead for functionality for now
     if (!savedLinks.has(encoded)) {
       savedLinks.set(encoded, req.body.url);
     }
-
+    res.status(200);
     return res.json(encoded);
   }
   return { post };

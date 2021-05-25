@@ -18,9 +18,11 @@ function decodeController(ShortLinks, savedLinks) {
       decoded = savedLinks.get(req.body.url);
     }
     if (decoded) {
-      res.status(200).json(decoded);
+      res.status(200);
+      res.json(decoded);
     } else {
-      res.sendStatus(404).end();
+      res.status(404);
+      res.send();
       return;
     }
   }
