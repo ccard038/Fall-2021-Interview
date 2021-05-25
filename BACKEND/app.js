@@ -32,3 +32,5 @@ app.get("/", (req, res) => {
 app.use("/api/", encodeRouter);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+
+module.exports = app;
