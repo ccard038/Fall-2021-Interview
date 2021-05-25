@@ -1,13 +1,16 @@
-## Repository: 
+## Repository:
 
 ```
-PLACE_REPO_LINK_HERE
+https://github.com/ccard038/Fall-2021-Interview
+
 ```
 
 ## Run Instructions
 
-ADD_INSTRUCTIONS_ON_HOW_TO_RUN_YOUR_APP
+To run the app change directory to backend and run app.js (node app.js).
+Unit tests and Integration Tests can be ran with npm test.
+Testing the API can be done Postman / SOAPUI.
 
 ## Additional Information
 
-ANYTHING_ELSE_YOU_WOULD_LIKE_TO_SHARE
+Database is mostly set up, I couldn't get saving to work correctly with mongoose so I'm missing a working implementation.
